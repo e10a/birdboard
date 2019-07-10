@@ -4,7 +4,6 @@
         <h1>Create a Project</h1>
         <form method="POST" action="/projects">
             @csrf
-            @method('PATCH')
             @include('projects.form', [
                 'project' => new App\Project,
                 'buttonText' => 'Create Project',
