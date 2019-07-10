@@ -45,14 +45,14 @@ class ProjectsController extends Controller
         $this->authorize('update', $project);
 
         // validate
-        request()->validate([
+        $attributes = request()->validate([
+            'title' => 'required',
+            'description' => 'required|max:100',
             'notes' => 'min:3'
         ]);
 
         // persist
-        $project->update([
-            'notes' => request('notes')
-        ]);
+        $project->update($attributes);
 
         // redirect
         return redirect($project->path());

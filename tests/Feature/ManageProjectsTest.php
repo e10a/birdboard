@@ -49,7 +49,11 @@ class ManageProjectsTest extends TestCase
     {
         // $this->withoutExceptionHandling();
         $project = ProjectFactory::create();
-        $attributes = ['notes' => 'changed'];
+        $attributes = [
+            'title' => 'changed',
+            'description' => 'changed',
+            'notes' => 'changed'
+        ];
         $this->actingAs($project->owner)
             ->patch($project->path(), $attributes)
             ->assertRedirect($project->path());
