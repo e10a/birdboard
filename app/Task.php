@@ -8,6 +8,9 @@ class Task extends Model
 {
     protected $guarded = [];
     protected $touches = ['project'];
+    protected $casts = [
+        'completed' => 'boolean'
+    ];
 
     protected static function boot()
     {
