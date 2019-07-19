@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Facades\Tests\Setup\ProjectFactory;
 
-class RecordActivity extends TestCase
+class RecordActivityTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -29,7 +29,7 @@ class RecordActivity extends TestCase
     }
 
     /** @test **/
-    public function creating_a_new_task()
+    public function creating_a_task()
     {
         $project = ProjectFactory::create();
         $project->addTask('Do something');
@@ -45,6 +45,25 @@ class RecordActivity extends TestCase
             'completed' => true
         ]);
         $this->assertEquals('completed_task', $project->activity->last()->description);
+    }
+
+    /** @test **/
+    public function incompleting_a_task()
+    {
+
+        $project = ProjectFactory::withTasks(1)->create();
+        $this->actingAs($project->owner)->patch($project->tasks[0]->path(),[
+            'body' => 'foobar',
+            'completed' => true
+        ]);
+        $this->assertEquals('completed_task', $project->activity->last()->description);
+        $this->actingAs($project->owner)->patch($project->tasks[0]->path(), [
+            'body' => 'foobar',
+            'completed' => false
+        ]);
+        $this->assertCount(4,  $project->activity);
+        // $this->assertEquals('incompleted_task', $project->activity->last()->description);
+
     }
 
 }
