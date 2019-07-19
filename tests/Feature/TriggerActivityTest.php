@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Facades\Tests\Setup\ProjectFactory;
 
-class RecordActivityTest extends TestCase
+class TriggerActivityTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -52,18 +52,26 @@ class RecordActivityTest extends TestCase
     {
 
         $project = ProjectFactory::withTasks(1)->create();
-        $this->actingAs($project->owner)->patch($project->tasks[0]->path(),[
-            'body' => 'foobar',
-            'completed' => true
-        ]);
-        $this->assertEquals('completed_task', $project->activity->last()->description);
-        $this->actingAs($project->owner)->patch($project->tasks[0]->path(), [
+        $this->actingAs($project->owner)
+            ->patch($project->tasks[0]->path(),[
+                'body' => 'foobar',
+                'completed' => true
+            ]);
+        // $this->assertEquals('completed_task', $project->activity->last()->description);
+        $this->assertCount(3,  $project->activity);
+        $this->patch($project->tasks[0]->path(), [
             'body' => 'foobar',
             'completed' => false
         ]);
+        $project->refresh();
         $this->assertCount(4,  $project->activity);
-        // $this->assertEquals('incompleted_task', $project->activity->last()->description);
-
+        $this->assertEquals('incompleted_task', $project->activity->last()->description);
     }
-
+    /** @test **/
+    public function deleting_a_task()
+    {
+        $project = ProjectFactory::withTasks(1)->create();
+        $project->tasks[0]->delete();
+        $this->assertCount(3, $project->activity);
+    }
 }
