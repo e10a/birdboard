@@ -6,6 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Facades\Tests\Setup\ProjectFactory;
+use App\Task;
 
 class TriggerActivityTest extends TestCase
 {
@@ -33,7 +34,13 @@ class TriggerActivityTest extends TestCase
     {
         $project = ProjectFactory::create();
         $project->addTask('Do something');
-        $this->assertEquals('created_task', $project->activity->last()->description);
+
+        tap($project->activity->last(), function($activity) {
+            $this->assertEquals('created_task', $activity->description);
+            $this->assertEquals('Do something', $activity->subject->body);
+            $this->assertInstanceOf(Task::class, $activity->subject);
+        });
+
     }
 
     /** @test **/
@@ -45,6 +52,12 @@ class TriggerActivityTest extends TestCase
             'completed' => true
         ]);
         $this->assertEquals('completed_task', $project->activity->last()->description);
+
+        tap($project->activity->last(), function($activity) {
+            $this->assertEquals('completed_task', $activity->description);
+            $this->assertInstanceOf(Task::class, $activity->subject);
+        });
+
     }
 
     /** @test **/
