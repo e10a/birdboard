@@ -5,8 +5,8 @@
     <div class="text-gray-600">{{ str_limit($project->description, 20) }}</div>
     <footer>
         <form method="POST" action="{{ $project->path() }}" class="text-right">
+            @method('DELETE')
             @csrf
-            @method("DELETE")
             <button type="submit" class="text-xs">Delete</button>
         </form>
     </footer>
