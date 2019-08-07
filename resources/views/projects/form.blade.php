@@ -4,7 +4,7 @@
             name="title"
             required
             type="text"
-            class="input bg-transparent border border-gray-400 rounded p-2 text-xs w-full {{ $errors->has('title') ? 'border-red-400' : '' }}"
+            class="input p-2 text-xs {{ $errors->has('title') ? 'border-red-400' : '' }}"
             placeholder="Title"
             value="{{ $project->title }}"
         >
@@ -16,7 +16,7 @@
             name="description"
             required
             rows="10"
-            class="textarea bg-transparent border border-gray-400 rounded p-2 text-xs w-full {{ $errors->has('description') ? 'border-red-400' : '' }}"
+            class="input textarea p-2 text-xs {{ $errors->has('description') ? 'border-red-400' : '' }}"
             placeholder="Description"
         >{{ $project->description }}</textarea>
     </div>

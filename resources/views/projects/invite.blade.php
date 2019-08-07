@@ -8,7 +8,7 @@
             <input
                 type="email"
                 name="email"
-                class="border border-gray-400 rounded w-full py-2 px-3"
+                class="input border py-2 px-3"
                 placeholder="Email address"
             />
         </div>

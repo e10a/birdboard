@@ -455,7 +455,7 @@ ul {
 *::after {
   border-width: 0;
   border-style: solid;
-  border-color: #e1e6e8;
+  border-color: var(--text-default-color);
 }
 
 /**
@@ -595,6 +595,20 @@ table {
   padding: 1.25rem;
   border-radius: .5rem;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, .08);
+  color: var(--text-default-color);
+}
+
+.input {
+  background-color: var(--card-background-color);
+  width: 100%;
+  border-radius: .25rem;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, .4);
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  padding-left: .75rem;
+  padding-right: .75rem;
+  color: var(--text-default-color);
 }
 
 /**
@@ -641,6 +655,10 @@ table {
   background-color: var(--button-background-color);
 }
 
+.bg-header {
+  background-color: var(--header-background-color);
+}
+
 .hover\:bg-page:hover {
   background-color: var(--page-background-color);
 }
@@ -653,6 +671,10 @@ table {
   background-color: var(--button-background-color);
 }
 
+.hover\:bg-header:hover {
+  background-color: var(--header-background-color);
+}
+
 .focus\:bg-page:focus {
   background-color: var(--page-background-color);
 }
@@ -663,6 +685,10 @@ table {
 
 .focus\:bg-button:focus {
   background-color: var(--button-background-color);
+}
+
+.focus\:bg-header:focus {
+  background-color: var(--header-background-color);
 }
 
 .bg-bottom {
@@ -4080,6 +4106,10 @@ table {
   color: transparent;
 }
 
+.text-default {
+  color: var(--text-default-color);
+}
+
 .text-black {
   color: #222;
 }
@@ -4372,6 +4402,10 @@ table {
   color: transparent;
 }
 
+.hover\:text-default:hover {
+  color: var(--text-default-color);
+}
+
 .hover\:text-black:hover {
   color: #222;
 }
@@ -4662,6 +4696,10 @@ table {
 
 .focus\:text-transparent:focus {
   color: transparent;
+}
+
+.focus\:text-default:focus {
+  color: var(--text-default-color);
 }
 
 .focus\:text-black:focus {
@@ -5378,9 +5416,27 @@ table {
  */
 
 :root {
-  --page-background-color: red;
-  --card-background-color: red;
-  --button-background-color: red;
+  --page-background-color: #f5f6f9;
+  --card-background-color: white;
+  --button-background-color: #47cdff;
+  --header-background-color: white;
+  --text-default-color: #8795a1;
+}
+
+.theme-light {
+  --page-background-color: #f5f6f9;
+  --card-background-color: white;
+  --button-background-color: #47cdff;
+  --header-background-color: white;
+  --text-default-color: #8795a1;
+}
+
+.theme-dark {
+  --page-background-color: #17181e;
+  --card-background-color: #1f2027;
+  --button-background-color: #59b6f9;
+  --header-background-color: #1f2027;
+  --text-default-color: #fff;
 }
 
 @media (min-width: 576px) {
@@ -5419,6 +5475,10 @@ table {
     background-color: var(--button-background-color);
   }
 
+  .sm\:bg-header {
+    background-color: var(--header-background-color);
+  }
+
   .sm\:hover\:bg-page:hover {
     background-color: var(--page-background-color);
   }
@@ -5431,6 +5491,10 @@ table {
     background-color: var(--button-background-color);
   }
 
+  .sm\:hover\:bg-header:hover {
+    background-color: var(--header-background-color);
+  }
+
   .sm\:focus\:bg-page:focus {
     background-color: var(--page-background-color);
   }
@@ -5441,6 +5505,10 @@ table {
 
   .sm\:focus\:bg-button:focus {
     background-color: var(--button-background-color);
+  }
+
+  .sm\:focus\:bg-header:focus {
+    background-color: var(--header-background-color);
   }
 
   .sm\:bg-bottom {
@@ -8834,6 +8902,10 @@ table {
     color: transparent;
   }
 
+  .sm\:text-default {
+    color: var(--text-default-color);
+  }
+
   .sm\:text-black {
     color: #222;
   }
@@ -9126,6 +9198,10 @@ table {
     color: transparent;
   }
 
+  .sm\:hover\:text-default:hover {
+    color: var(--text-default-color);
+  }
+
   .sm\:hover\:text-black:hover {
     color: #222;
   }
@@ -9416,6 +9492,10 @@ table {
 
   .sm\:focus\:text-transparent:focus {
     color: transparent;
+  }
+
+  .sm\:focus\:text-default:focus {
+    color: var(--text-default-color);
   }
 
   .sm\:focus\:text-black:focus {
@@ -10153,6 +10233,10 @@ table {
     background-color: var(--button-background-color);
   }
 
+  .md\:bg-header {
+    background-color: var(--header-background-color);
+  }
+
   .md\:hover\:bg-page:hover {
     background-color: var(--page-background-color);
   }
@@ -10165,6 +10249,10 @@ table {
     background-color: var(--button-background-color);
   }
 
+  .md\:hover\:bg-header:hover {
+    background-color: var(--header-background-color);
+  }
+
   .md\:focus\:bg-page:focus {
     background-color: var(--page-background-color);
   }
@@ -10175,6 +10263,10 @@ table {
 
   .md\:focus\:bg-button:focus {
     background-color: var(--button-background-color);
+  }
+
+  .md\:focus\:bg-header:focus {
+    background-color: var(--header-background-color);
   }
 
   .md\:bg-bottom {
@@ -13568,6 +13660,10 @@ table {
     color: transparent;
   }
 
+  .md\:text-default {
+    color: var(--text-default-color);
+  }
+
   .md\:text-black {
     color: #222;
   }
@@ -13860,6 +13956,10 @@ table {
     color: transparent;
   }
 
+  .md\:hover\:text-default:hover {
+    color: var(--text-default-color);
+  }
+
   .md\:hover\:text-black:hover {
     color: #222;
   }
@@ -14150,6 +14250,10 @@ table {
 
   .md\:focus\:text-transparent:focus {
     color: transparent;
+  }
+
+  .md\:focus\:text-default:focus {
+    color: var(--text-default-color);
   }
 
   .md\:focus\:text-black:focus {
@@ -14887,6 +14991,10 @@ table {
     background-color: var(--button-background-color);
   }
 
+  .lg\:bg-header {
+    background-color: var(--header-background-color);
+  }
+
   .lg\:hover\:bg-page:hover {
     background-color: var(--page-background-color);
   }
@@ -14899,6 +15007,10 @@ table {
     background-color: var(--button-background-color);
   }
 
+  .lg\:hover\:bg-header:hover {
+    background-color: var(--header-background-color);
+  }
+
   .lg\:focus\:bg-page:focus {
     background-color: var(--page-background-color);
   }
@@ -14909,6 +15021,10 @@ table {
 
   .lg\:focus\:bg-button:focus {
     background-color: var(--button-background-color);
+  }
+
+  .lg\:focus\:bg-header:focus {
+    background-color: var(--header-background-color);
   }
 
   .lg\:bg-bottom {
@@ -18302,6 +18418,10 @@ table {
     color: transparent;
   }
 
+  .lg\:text-default {
+    color: var(--text-default-color);
+  }
+
   .lg\:text-black {
     color: #222;
   }
@@ -18594,6 +18714,10 @@ table {
     color: transparent;
   }
 
+  .lg\:hover\:text-default:hover {
+    color: var(--text-default-color);
+  }
+
   .lg\:hover\:text-black:hover {
     color: #222;
   }
@@ -18884,6 +19008,10 @@ table {
 
   .lg\:focus\:text-transparent:focus {
     color: transparent;
+  }
+
+  .lg\:focus\:text-default:focus {
+    color: var(--text-default-color);
   }
 
   .lg\:focus\:text-black:focus {
@@ -19621,6 +19749,10 @@ table {
     background-color: var(--button-background-color);
   }
 
+  .xl\:bg-header {
+    background-color: var(--header-background-color);
+  }
+
   .xl\:hover\:bg-page:hover {
     background-color: var(--page-background-color);
   }
@@ -19633,6 +19765,10 @@ table {
     background-color: var(--button-background-color);
   }
 
+  .xl\:hover\:bg-header:hover {
+    background-color: var(--header-background-color);
+  }
+
   .xl\:focus\:bg-page:focus {
     background-color: var(--page-background-color);
   }
@@ -19643,6 +19779,10 @@ table {
 
   .xl\:focus\:bg-button:focus {
     background-color: var(--button-background-color);
+  }
+
+  .xl\:focus\:bg-header:focus {
+    background-color: var(--header-background-color);
   }
 
   .xl\:bg-bottom {
@@ -23036,6 +23176,10 @@ table {
     color: transparent;
   }
 
+  .xl\:text-default {
+    color: var(--text-default-color);
+  }
+
   .xl\:text-black {
     color: #222;
   }
@@ -23328,6 +23472,10 @@ table {
     color: transparent;
   }
 
+  .xl\:hover\:text-default:hover {
+    color: var(--text-default-color);
+  }
+
   .xl\:hover\:text-black:hover {
     color: #222;
   }
@@ -23618,6 +23766,10 @@ table {
 
   .xl\:focus\:text-transparent:focus {
     color: transparent;
+  }
+
+  .xl\:focus\:text-default:focus {
+    color: var(--text-default-color);
   }
 
   .xl\:focus\:text-black:focus {

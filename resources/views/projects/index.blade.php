@@ -2,7 +2,7 @@
 @section('content')
     <header class="flex items-center mb-3 py-4">
         <div class="flex w-full items-end justify-between">
-        <h2 class="text-gray-600 text-sm">My Projects</h2>
+        <h2 class="text-default text-sm">My Projects</h2>
         <a href="/projects/create" class="button">Add Project</a>
         </div>
     </header>
