@@ -9,8 +9,7 @@ class ProjectsController extends Controller
 {
     public function index()
     {
-        // $projects = Project::all();
-        $projects = auth()->user()->projects;
+        $projects = auth()->user()->accessibleProjects();
         return view('projects.index', compact('projects'));
     }
 
@@ -55,12 +54,12 @@ class ProjectsController extends Controller
         return redirect($project->path());
     }
 
-    // public function destroy(Project $project)
-    // {
-    //     $this->authorize('update', $project);
-    //     $project->delete();
-    //     return redirect('/projects');
-    // }
+    public function destroy(Project $project)
+    {
+        $this->authorize('update', $project);
+        $project->delete();
+        return redirect('/projects');
+    }
 
     protected function validateRequest()
     {

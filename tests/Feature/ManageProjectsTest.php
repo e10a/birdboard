@@ -110,6 +110,14 @@ class ManageProjectsTest extends TestCase
     }
 
     /** @test **/
+    public function a_user_can_view_invited_projects()
+    {
+        $user = $this->signIn();
+        $project = tap(ProjectFactory::create())->invite($user);
+        $this->get('/projects')->assertSee($project->title);
+    }
+
+    /** @test **/
     public function an_authenticated_user_cannot_view_the_projects_of_others()
     {
         $this->signIn();
