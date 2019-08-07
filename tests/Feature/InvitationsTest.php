@@ -22,7 +22,7 @@ class InvitationsTest extends TestCase
     /** @test **/
     public function a_project_owner_can_invite_a_user()
     {
-        $this->withoutExceptionHandling();
+        // $this->withoutExceptionHandling();
         $project = ProjectFactory::create();
         $userToInvite = factory(User::class)->create();
         $this->actingAs($project->owner)->post(
