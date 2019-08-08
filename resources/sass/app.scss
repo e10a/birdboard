@@ -71,6 +71,25 @@
         box-shadow: 0 2px 7px 0 #00658b;
     }
 }
+
+.dropdown-toggle {
+    > button {
+        @apply .py-2 .px-4 .rounded-lg;
+    }
+    > button:focus,
+    button:hover {
+        outline: 0;
+        background: rgba(0,0,0,0.1);
+    }
+}
+
+.dropdown-menu-link {
+    @apply .block .px-4 .text-default .no-underline .text-sm .leading-loose .px-4;
+    &:hover {
+        background: rgba(0, 0, 0, 0.1);
+    }
+}
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
