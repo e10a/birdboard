@@ -1939,6 +1939,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1946,7 +1948,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         title: '',
         description: '',
         tasks: [{
-          value: ''
+          body: ''
         }]
       },
       errors: {}
@@ -1955,7 +1957,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   methods: {
     addTask: function addTask() {
       this.form.tasks.push({
-        value: ''
+        body: ''
       });
     },
     submit: function () {
@@ -38139,7 +38141,11 @@ var render = function() {
                   class: _vm.errors.title
                     ? "border-error"
                     : "border-muted-light",
-                  attrs: { type: "text", id: "title" },
+                  attrs: {
+                    type: "text",
+                    id: "title",
+                    placeholder: "Add a title"
+                  },
                   domProps: { value: _vm.form.title },
                   on: {
                     input: function($event) {
@@ -38229,20 +38235,20 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: task.value,
-                          expression: "task.value"
+                          value: task.body,
+                          expression: "task.body"
                         }
                       ],
                       staticClass:
                         "input p-2 mb-2 border border-muted-light text-xs",
                       attrs: { type: "text", placeholder: "Task 1" },
-                      domProps: { value: task.value },
+                      domProps: { value: task.body },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.$set(task, "value", $event.target.value)
+                          _vm.$set(task, "body", $event.target.value)
                         }
                       }
                     })

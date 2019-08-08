@@ -15,6 +15,7 @@
                         class="input p-2 border text-xs"
                         :class="errors.title ? 'border-error' : 'border-muted-light'"
                         id="title"
+                        placeholder="Add a title"
                     />
                     <span
                         class="text-xs italic text-error"
@@ -50,7 +51,7 @@
                     >Need some tasks?</label>
                     <input
                         v-for="task in form.tasks"
-                        v-model="task.value"
+                        v-model="task.body"
                         type="text"
                         class="input p-2 mb-2 border border-muted-light text-xs"
                         placeholder="Task 1"
@@ -70,7 +71,8 @@
         </div>
         <footer class="flex justify-end">
             <button
-                type="button" class="button is-outlined mr-4"
+                type="button"
+                class="button is-outlined mr-4"
                 @click="$modal.hide('new-project')"
             >Cancel</button>
             <button class="button">Create Project</button>
@@ -87,7 +89,7 @@ export default {
                 title: '',
                 description: '',
                 tasks: [
-                    { value: '' }
+                    { body: '' }
                 ]
             },
             errors: {}
@@ -95,7 +97,7 @@ export default {
     },
     methods: {
         addTask() {
-            this.form.tasks.push({ value: '' });
+            this.form.tasks.push({ body: '' });
         },
         async submit() {
             try {
