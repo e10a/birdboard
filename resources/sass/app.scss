@@ -45,11 +45,6 @@
     @apply .px-4;
 }
 
-.button {
-    @apply .bg-button .text-white .no-underline .rounded-lg .text-sm .py-2 .px-5;
-    box-shadow: 0 2px 7px 0 #b0eaff;
-}
-
 .card {
     @apply .bg-card .p-5 .rounded-lg .shadow;
     color: var(--text-default-color);
@@ -58,6 +53,23 @@
 .input {
     @apply .bg-card .w-full .rounded .border .border-grey .py-2 .px-3;
     color: var(--text-default-color);
+}
+
+.button {
+    @apply .bg-button .no-underline .rounded-lg .text-sm .py-2 .px-5;
+    color: white;
+
+    &.is-outlined {
+        @apply .bg-card .border .border-accent .text-accent;
+    }
+
+    .theme-light & {
+        box-shadow: 0 2px 7px 0 #b0eaff;
+    }
+
+    .theme-dark & {
+        box-shadow: 0 2px 7px 0 #00658b;
+    }
 }
 /**
  * This injects all of Tailwind's utility classes, generated based on your
@@ -84,10 +96,17 @@
  * @import "utilities/skew-transforms";
  */
 
-:root {
-    --page-background-color: #f5f6f9;
-    --card-background-color: white;
-    --button-background-color: #47cdff;
-    --header-background-color: white;
-    --text-default-color: #8795a1;
-}
+// :root {
+//     --page-background-color: #f5f6f9;
+//     --card-background-color: white;
+//     --button-background-color: #47cdff;
+//     --header-background-color: white;
+//     --text-default-color: #8795a1;
+//     --text-default-color: #222;
+//     --text-accent-color: #47cdff;
+//     --text-accent-light-color: #8ae2fe;
+//     --text-muted-color: rgba(0, 0, 0, 0.3);
+//     --text-muted-light-color: rgba(255, 255, 255, 0.1);
+//     --text-muted-light-color: #e1e6e8;
+//     --text-error-color: red;
+// }
